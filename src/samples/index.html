@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <title>LeafLet Web Presence</title>
+
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .llwb-map {
+                height: 500px;
+                width: 1500px;
+                border: 1px solid black;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../leaflet-web-presence.css"></link>
+    </head>
+
+    <body>
+        <div>Web Mercator</div>
+        <div id="mapWM" class="llwb-map" data-leaflet="{ 'projection': 3857, 'zoomLevel': 4, 'center': [60,-100], 'language': 'fr-CA',
+            'layers':[
+                { 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/NRCAN/Investing_Energy_Canada_en/MapServer', 'type': 'esriDynamic', 'entries': '0, 2' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/GSCC/Geochronology/MapServer', 'type': 'esriDynamic', 'entries': '0' }
+            ]}">
+        </div>
+        <div>LCC</div>
+        <div id="mapLCC" class="llwb-map" data-leaflet="{ 'projection': 3978, 'zoomLevel': 4, 'center': [60,-100], 'language': 'en-CA',
+            'layers':[
+                { 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/services/MMS/T100EP_E/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/NACEI/energy_infrastructure_of_north_america_en/MapServer/1', 'type': 'esriFeature' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/NACEI/energy_infrastructure_of_north_america_en/MapServer', 'type': 'esriDynamic', 'entries': '1, 2, 3, 4, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16, 28, 29, 37' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/GSCC/Geochronology/MapServer', 'type': 'esriDynamic', 'entries': '0' }
+            ]}">
+        </div>
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="../leaflet-web-presence.js"></script>
+</html>
+
+<!-- 'renderer':[{
+    'label': 'my label'
+    'value': 'my value'
+    'symbol': {
+        'angle': 0
+        'imageData': "iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAGhJREFUCJlNzLENwjAYBeHP0i8Z2vSeIgvQhkFo2CBTZAMmgSlSRqLIDC5cmQKQ8qrTnfQC6Oec+0wa8WzNEr+wkG5fNuXsFDAMaarVcdeAWq0of9taXwNKcd93D4x4keaAbUtvXI5fH4U9GQCzpVvDAAAAAElFTkSuQmCC"
+    }
+}] -->

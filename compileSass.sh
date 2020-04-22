@@ -1,0 +1,1 @@
+node-sass ./src/main.scss ../dist/leaflet-web-presence/leaflet-web-presence.css --importer node_modules/node-sass-import
