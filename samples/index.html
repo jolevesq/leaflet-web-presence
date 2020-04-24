@@ -11,7 +11,7 @@
                 flex-direction: column;
             }
 
-            .myMap {
+            .llwb-map {
                 height: 500px;
                 width: 1500px;
                 border: 1px solid black;
@@ -19,19 +19,15 @@
         </style>
 
         <link rel="stylesheet" href="../leaflet-web-presence.css"></link>
-        <script src="../leaflet-web-presence.js"></script>
     </head>
 
     <body>
         <div>Web Mercator</div>
-        <div id="mapWM" class="myMap"></div>
+        <div id="mapWM" class="llwb-map" data-leaflet="{ 'projection': 3857, 'zoomLevel': 4, 'center': [60,-100], 'layers':[{ 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' }]}"></div>
         <div>LCC</div>
-        <div id="mapLCC" class="myMap"></div>
+        <div id="mapLCC" class="llwb-map" data-leaflet="{ 'projection': 3978, 'zoomLevel': 4, 'center': [60,-100], 'layers':[{ 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' }]}"></div>
     </body>
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script>
-        window.leafletWB.webMercator('mapWM');
-        window.leafletWB.lcc('mapLCC');
-    </script>
+    <script src="../leaflet-web-presence.js"></script>
 </html>
