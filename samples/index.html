@@ -23,9 +23,18 @@
 
     <body>
         <div>Web Mercator</div>
-        <div id="mapWM" class="llwb-map" data-leaflet="{ 'projection': 3857, 'zoomLevel': 4, 'center': [60,-100], 'layers':[{ 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' }]}"></div>
+        <div id="mapWM" class="llwb-map" data-leaflet="{ 'projection': 3857, 'zoomLevel': 4, 'center': [60,-100],
+            'layers':[
+                { 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' }
+            ]}">
+        </div>
         <div>LCC</div>
-        <div id="mapLCC" class="llwb-map" data-leaflet="{ 'projection': 3978, 'zoomLevel': 4, 'center': [60,-100], 'layers':[{ 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' }]}"></div>
+        <div id="mapLCC" class="llwb-map" data-leaflet="{ 'projection': 3978, 'zoomLevel': 4, 'center': [60,-100],
+            'layers':[
+                { 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/services/MMS/T100EP_E/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' }
+            ]}">
+        </div>
     </body>
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
