@@ -2,21 +2,26 @@
 import { en } from 'vuetify/src/locale'
 
 export default {
-  ...en,
+    ...en,
 
-  key1: "key 1 internationalization",
-  key2: "key 2 internationalization",
+    close: 'Close',
 
-  sideMenu: "Show side menu",
-  layers: "Layers",
-  close: "Close",
-
-  fullScreen: "Full Screen",
-  help: "Help",
-
-  logoText: "Web Presence",
-
-  namespace: {
-    key3: "key 3 internationalization"
-  }
+    appbar: {
+        sidemenu: 'Show side menu',
+        layers: 'Show layers'
+    },
+    mapnav: {
+        fullscreen: 'Full Screen',
+        home: 'Home',
+        zoomIn: 'Zoom in',
+        zoomOut: 'zoom out'
+    },
+    sidemenu: {
+        export: 'Export',
+        fullscreen: 'Full Screen',
+        help: 'Help',
+        layers: 'Layers',
+        share: 'Share',
+        logotext: 'Web Presence',
+    }
 }

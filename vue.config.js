@@ -16,11 +16,11 @@ module.exports = {
 
     // get the right file for source map. Vue add hash to file name so it is hard to find the right one
     config.output.devtoolModuleFilenameTemplate = (info) => {
-      const isGeneratedDuplicate = info.resourcePath.match(/\.vue$/) && info.allLoaders;
-      if (isGeneratedDuplicate) {
-        return `webpack-generated:///${info.resourcePath}?${info.hash}`;
-      }
-      return `webpack:///${path.normalize(info.resourcePath)}`;
+        const isGeneratedDuplicate = info.resourcePath.match(/\.vue$/) && info.allLoaders;
+        if (isGeneratedDuplicate) {
+            return `webpack-generated:///${info.resourcePath}?${info.hash}`;
+        }
+        return `webpack:///${path.normalize(info.resourcePath)}`;
     };
     config.output.devtoolFallbackModuleFilenameTemplate = 'webpack:///[resource-path]?[hash]';
 
@@ -38,17 +38,15 @@ module.exports = {
             .toString()
             .trim()
     );
-    config.plugins.push(new webpack.DefinePlugin(
-      {
+    config.plugins.push(new webpack.DefinePlugin({
         __VERSION__: {
-          major,
-          minor,
-          patch,
-          timestamp: Date.now(),
-          hash
+            major,
+            minor,
+            patch,
+            timestamp: Date.now(),
+            hash
         }
-      }
-    ));
+      }));
   },
   chainWebpack: config => {
     // config
@@ -57,5 +55,13 @@ module.exports = {
     //   args[0].title = 'My title of course'
     //   return args
     // })
-  }
+  },
+  css: {
+    loaderOptions: {
+        postcss: {
+            config: {
+                path: './postcss.config.js'
+            }
+        }
+    }}
 };

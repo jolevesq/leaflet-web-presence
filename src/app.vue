@@ -1,61 +1,62 @@
 <template>
-  <v-app>
-  <v-container>
-    <div v-for="(map, idx) in maps" v-bind:key="idx">
-      {{map.name}}
-      <wp-map :id="map.id" :projection="map.projection" :zoomLevel="map.zoomLevel" :center="map.center" :language="map.language" :layers="map.layers"></wp-map>
-    </div>
-  </v-container>
-  </v-app>
+    <v-app>
+        <div class="cgp-leaflet-app">
+            <cgp-map :id="mapId" :projection="config.projection" :zoomLevel="config.zoomLevel" :center="config.center" :language="config.language" :layers="config.layers"></cgp-map>
+        </div>
+    </v-app>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import wpMap from "./components/map.vue";
-import { MapDomConfig } from "./components/map.vue";
+import { Vue, Component } from 'vue-property-decorator';
 
-import L from "leaflet";
-import "proj4leaflet";
+import MapV from './components/map.vue';
+import { InlineMapConfig } from './common/common';
 
+import L from 'leaflet';
+import 'proj4leaflet';
 
 @Component({
-  name: "wp-leaflet-viewer",
-  components: {
-    wpMap
-  }
-})
-export default class App extends Vue {
-  private maps: any = [];
- 
-  beforeMount() {
-    this.initMap();
-  }
-
-  // https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle
-  private initMap() {
-    const maps: HTMLCollectionOf<Element> = document.getElementsByClassName("llwb-map");
-    for (let i = 0; i < maps.length; i++) {
-      // create the map from configuration
-      // TODO: here, check if it is from config or API and do the right call
-      const myMap: any = maps[i];
-      const config: MapDomConfig = JSON.parse(myMap.getAttribute('data-leaflet').replace(/'/g, '"'));
-
-      myMap.id = maps[i].id
-      myMap.name = config.name;
-      myMap.projection = config.projection;
-      myMap.zoomLevel = config.zoomLevel;
-      myMap.center = config.center;
-      myMap.language = config.language;
-      myMap.layers = config.layers;
-    
-      // set language
-      this.$vuetify.lang.current = myMap.language.split('-')[0];
-      this.maps.push(maps[i]);
+    components: {
+        'cgp-map': MapV
     }
-  }
-}
+})
+export default class AppV extends Vue {
+    private maps: any[] = [];
+    private config: InlineMapConfig;
+    private mapId: string = '';
 
-interface Map extends Element{
-  name: string
+    // VUE Lifecycle: // https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle
+    beforeMount() {
+        // get the inline configuration
+        // TODO: make it work with default config and  uuid from catalog
+        // expression is not null or undefined, use the non-null assertion operator ! to coerce away those types
+        const element = this.$parent.$el;
+        this.config = JSON.parse(element.getAttribute('data-leaflet')!.replace(/'/g, '"'));
+    }
+
+    mounted() {
+        // see on wich app it is linked
+        this.mapId = this.$parent.$options.mapId!;
+
+        // set language
+        this.$vuetify.lang.current = this.config.language.split('-')[0];
+        this.maps.push(this.config);
+    }
 }
 </script>
+
+<style lang="scss">
+// APP-WIDE STYLES
+@use 'styles/main';
+.cpg-leaflet-app {
+    height: 500px;
+}
+.v-application--wrap {
+    min-height: auto !important;
+}
+</style>
+
+<style lang="scss" scoped>
+.cpg-leaflet-app {
+}
+</style>

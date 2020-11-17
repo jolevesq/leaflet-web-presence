@@ -1,16 +1,18 @@
-import Vue from "vue";
-import Vuetify from "vuetify/lib";
+import Vue from 'vue';
+import Vuetify from 'vuetify/lib';
 
 // icons (set icons in their own file)
-import closePanelLeft from "../assets/icons/close-panel-left.vue";
-import sideMenu from "../assets/icons/side-menu.vue";
-import github from "../assets/icons/github.vue";
-import layers from "../assets/icons/layers.vue";
-import zoomIn from "../assets/icons/zoom-in.vue";
-import fullScreen from "../assets/icons/full-screen.vue";
-import help from "../assets/icons/help.vue";
+import closePanelLeft from '../assets/icons/close-panel-left.vue';
+import sideMenu from '../assets/icons/side-menu.vue';
+import github from '../assets/icons/github.vue';
+import layers from '../assets/icons/layers.vue';
+import fullScreen from '../assets/icons/full-screen.vue';
+import help from '../assets/icons/help.vue';
+import home from '../assets/icons/home.vue';
+import zoomIn from '../assets/icons/zoom-in.vue';
+import zoomOut from '../assets/icons/zoom-out.vue';
 
-// translation
+// translations
 import en from '../assets/i18n/en-CA';
 import fr from '../assets/i18n/fr-CA';
 
@@ -23,10 +25,12 @@ const opts = {
             sideMenu: { component: sideMenu },
             github: { component: github },
             layers: { component: layers },
-            zoomIn: { component: zoomIn },
             closePanelLeft: { component: closePanelLeft },
             fullScreen: { component: fullScreen },
-            help: { component: help }
+            help: { component: help },
+            home: { component: home},
+            zoomIn: { component: zoomIn },
+            zoomOut: { component: zoomOut }
         }
     },
     breakpoint: {
@@ -55,4 +59,19 @@ const opts = {
     },
 };
 
-export default new Vuetify(opts);
+/**
+ * A class to create a new instance of Vuetify for every app on a page.
+ *
+ * @export
+ * @class APPVuetify
+ */
+export class APPVuetify {
+    /**
+     * Creates an instance of APPVuetify.
+     *
+     * @memberof APPVuetify
+     */
+    constructor() {
+        return new Vuetify(opts);
+    }
+};

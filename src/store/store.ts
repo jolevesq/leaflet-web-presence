@@ -7,6 +7,8 @@ import { RootState } from '@/store/state';
 
 Vue.use(Vuex);
 
+
+
 export const createStore = () =>
     new Vuex.Store<RootState>({
         plugins: [pathify.plugin],
