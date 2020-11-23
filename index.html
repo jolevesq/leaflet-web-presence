@@ -1,21 +1,23 @@
 <!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/leaflet-web-presence/favicon.ico><title>wb-leaflet-vue</title><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css><style>body {
-        display: flex;
-        flex-direction: column;
-      }
-      .llwb-map {
-        height: 500px;
-        width: 1500px;
-      }</style><link href=/leaflet-web-presence/css/app.96ea0c0f.css rel=preload as=style><link href=/leaflet-web-presence/css/chunk-vendors.963a4afc.css rel=preload as=style><link href=/leaflet-web-presence/js/chunk-vendors.9402c2d3.js rel=preload as=script><link href=/leaflet-web-presence/leaflet-web-presence.js rel=preload as=script><link href=/leaflet-web-presence/css/chunk-vendors.963a4afc.css rel=stylesheet><link href=/leaflet-web-presence/css/app.96ea0c0f.css rel=stylesheet></head><body><noscript><strong>We're sorry but wb-leaflet-vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=wbMap><div id=mapWM class=llwb-map data-leaflet="{ 'name': 'Web Mercator', 'projection': 3857, 'zoomLevel': 4, 'center': [60,-100], 'language': 'en-CA',
-        'layers':[
-            { 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
-            { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/NRCAN/Investing_Energy_Canada_en/MapServer', 'type': 'esriDynamic', 'entries': '0, 2' },
-            { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/GSCC/Geochronology/MapServer', 'type': 'esriDynamic', 'entries': '0' },
-            { 'url': 'https://geo.weather.gc.ca/geomet', 'type': 'ogcWMS', 'entries': 'RAQDPS-FW.CE_PM2.5-DIFF-YAvg' }
-        ]}"></div><div id=mapLCC class=llwb-map data-leaflet="{ 'name': 'LCC', 'projection': 3978, 'zoomLevel': 8, 'center': [45,-75], 'language': 'fr-CA',
-        'layers':[
-            { 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
-            { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/services/MMS/T100EP_E/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
-            { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/NACEI/energy_infrastructure_of_north_america_en/MapServer/1', 'type': 'esriFeature' },
-            { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/NACEI/energy_infrastructure_of_north_america_en/MapServer', 'type': 'esriDynamic', 'entries': '4, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16, 28, 29, 37' },
-            { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/GSCC/Geochronology/MapServer', 'type': 'esriDynamic', 'entries': '0' }
-        ]}"></div></div><script src=/leaflet-web-presence/js/chunk-vendors.9402c2d3.js></script><script src=/leaflet-web-presence/leaflet-web-presence.js></script></body></html>
+                display: flex;
+                flex-direction: column;
+            }
+            .cgp-leaflet-app {
+                height: 500px;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }</style><link href=/leaflet-web-presence/css/app.31fa49b7.css rel=preload as=style><link href=/leaflet-web-presence/css/chunk-vendors.c1fd7169.css rel=preload as=style><link href=/leaflet-web-presence/js/chunk-vendors.5e080fbd.js rel=preload as=script><link href=/leaflet-web-presence/leaflet-web-presence.js rel=preload as=script><link href=/leaflet-web-presence/css/chunk-vendors.c1fd7169.css rel=stylesheet><link href=/leaflet-web-presence/css/app.31fa49b7.css rel=stylesheet></head><body><noscript><strong>We're sorry but wb-leaflet-vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><span>Leaflet samples with VueJS framework (English map in Web Mercator)</span><div><div id=mapWM class=llwb-map data-leaflet="{ 'name': 'Web Mercator', 'projection': 3857, 'zoomLevel': 4, 'center': [60,-100], 'language': 'en-CA',
+            'layers':[
+                { 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/NRCAN/Investing_Energy_Canada_en/MapServer', 'type': 'esriDynamic', 'entries': '0, 2' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/GSCC/Geochronology/MapServer', 'type': 'esriDynamic', 'entries': '0' },
+                { 'url': 'https://geo.weather.gc.ca/geomet', 'type': 'ogcWMS', 'entries': 'RAQDPS-FW.CE_PM2.5-DIFF-YAvg' }
+            ]}"></div><span>Samples to show a second map on the same App with different projection (French map in LCC)</span><div id=mapLCC class=llwb-map data-leaflet="{ 'name': 'LCC', 'projection': 3978, 'zoomLevel': 8, 'center': [45,-75], 'language': 'fr-CA',
+            'layers':[
+                { 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/services/MMS/T100EP_E/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/NACEI/energy_infrastructure_of_north_america_en/MapServer/1', 'type': 'esriFeature' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/NACEI/energy_infrastructure_of_north_america_en/MapServer', 'type': 'esriDynamic', 'entries': '4, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16, 28, 29, 37' },
+                { 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/GSCC/Geochronology/MapServer', 'type': 'esriDynamic', 'entries': '0' }
+            ]}"></div></div><script src=/leaflet-web-presence/js/chunk-vendors.5e080fbd.js></script><script src=/leaflet-web-presence/leaflet-web-presence.js></script></body></html>
